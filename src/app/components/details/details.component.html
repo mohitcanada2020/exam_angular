@@ -1,0 +1,21 @@
+<!-- movie-details.component.html -->
+<div class="movie-details-container" *ngIf="movieDetails">
+    <div class="poster">
+      <img [src]="movieDetails.poster" alt="Movie Poster">
+    </div>
+    <div class="details">
+      <h2>{{ movieDetails.title }}</h2>
+      <div class="info">
+        <p><strong>Release Date:</strong> {{ movieDetails.release_date }}</p>
+        <p><strong>Duration:</strong> {{ movieDetails.duration }}</p>
+        <p><strong>Budget:</strong> {{ movieDetails.budget }}</p>
+        <p><strong>Box Office:</strong> {{ movieDetails.box_office }}</p>
+        <p><strong>Producers:</strong> {{ movieDetails.producers.join(', ') }}</p>
+        <p><strong>Cinematographers:</strong> {{ movieDetails.cinematographers.join(', ') }}</p>
+      </div>
+      <div class="summary">
+        <h3>Summary</h3>
+        <p>{{ movieDetails.summary }}</p>
+      </div>
+    </div>
+  </div>
