@@ -1,19 +1,37 @@
-<h2>Movie List</h2>
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let movie of moviesList">
-      <td>
-        <h3>{{ movie.title }}</h3>
-        <p>Release Date: {{ movie.release_date }} Budget: {{ (+movie.budget) | currency : 'USD': 'symbol-narrow':
-          '1.0-0' }} million Duration: {{(+movie.duration) | duration}}</p>
-      </td>
-      <td><button class="btn btn-primary" (click)="goToDetails(movie.id)">Details</button></td>
-    </tr>
-  </tbody>
-</table>
+<div class="container">
+
+  <div class="jumbotron">
+    <h3>Filters</h3>
+    <div class="input-field">
+      <div class="input-group">
+        <label for="name">Title</label>
+        <input type="text" [(ngModel)]="searchTerm" (input)="filterMovies()" placeholder="Search by title...">
+      </div>
+      <div class="input-group">
+        <label for="name">Release Year</label>
+        <input type="number" [(ngModel)]="searchYear" (input)="filterMovies()" placeholder="Search by year...">
+      </div>
+    </div>
+  </div>
+
+  <h2>Movie List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let movie of filteredMovies">
+        <td>
+          <h3>{{ movie.title }}</h3>
+          <p>Release Date: {{ movie.release_date }} Budget: {{ (+movie.budget) | currency : 'USD': 'symbol-narrow':
+            '1.0-0' }} million Duration: {{(+movie.duration) | duration}}</p>
+        </td>
+        <td><button class="button-57" role="button" (click)="goToDetails(movie.id)"><span
+              class="text">Details</span><span>Details</span></button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

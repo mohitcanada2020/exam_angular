@@ -15,38 +15,50 @@ table {
   font-family: Arial, sans-serif;
 }
 
-th,
-td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
+.jumbotron {
+  background-color: #f8f9fa;
+  padding: 2rem;
+  border-radius: 0.3rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px;
 }
 
-th {
-  background-color: #f2f2f2;
+.jumbotron h1 {
+  font-size: 2.5rem;
+  color: #343a40;
 }
 
-tr:nth-child(even) {
-  background-color: #f2f2f2;
+.jumbotron p {
+  font-size: 1.25rem;
+  color: #6c757d;
 }
 
-tr:hover {
-  background-color: #ddd;
+/* Input Style */
+.input-field {
+  display: flex;
 }
 
-.btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-  text-transform: uppercase;
+.input-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.input-group label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.input-group input {
+  padding: 0.5rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+}
+
+.input-group input:focus {
   outline: none;
-  transition: background-color 0.3s ease;
-}
-
-.btn-primary:hover {
-  background-color: #0056b3;
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
