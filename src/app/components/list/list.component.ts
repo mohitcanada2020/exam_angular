@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './list.component.css',
 })
 export class ListComponent implements OnInit {
-  moviesList!: Array<Movies>;
+  moviesList: Movies[] = [];
   filteredMovies: any[] = [];
   searchTerm: string = '';
   searchYear: string = '';
