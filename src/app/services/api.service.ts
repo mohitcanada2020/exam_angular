@@ -4,20 +4,16 @@ import { MovieDetails, Movies } from '../models/movies';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http:HttpClient) { }
-
-  getMovies(): Observable<Movies[]>{
-
+  getMovies(): Observable<Movies[]> {
     return this.http.get<Movies[]>('/movies');
   }
 
-  
-  getMovieDetails(id: String): Observable<MovieDetails>{
-
+  getMovieDetails(id: string): Observable<MovieDetails> {
     return this.http.get<MovieDetails>(`/movies/${id}`);
   }
 }

@@ -3,18 +3,16 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Duration</th>
-      <th>Budget</th>
-      <th>Release Date</th>
       <th>Action</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let movie of moviesList">
-      <td>{{ movie.title }}</td>
-      <td>{{ movie.duration }}</td>
-      <td>{{ movie.budget }}</td>
-      <td>{{ movie.release_date }}</td>
+      <td>
+        <h3>{{ movie.title }}</h3>
+        <p>Release Date: {{ movie.release_date }} Budget: {{ (+movie.budget) | currency : 'USD': 'symbol-narrow':
+          '1.0-0' }} million Duration: {{(+movie.duration) | duration}}</p>
+      </td>
       <td><button class="btn btn-primary" (click)="goToDetails(movie.id)">Details</button></td>
     </tr>
   </tbody>

@@ -1,21 +1,47 @@
-<!-- movie-details.component.html -->
-<div class="movie-details-container" *ngIf="movieDetails">
-    <div class="poster">
-      <img [src]="movieDetails.poster" alt="Movie Poster">
-    </div>
-    <div class="details">
-      <h2>{{ movieDetails.title }}</h2>
-      <div class="info">
-        <p><strong>Release Date:</strong> {{ movieDetails.release_date }}</p>
-        <p><strong>Duration:</strong> {{ movieDetails.duration }}</p>
-        <p><strong>Budget:</strong> {{ movieDetails.budget }}</p>
-        <p><strong>Box Office:</strong> {{ movieDetails.box_office }}</p>
-        <p><strong>Producers:</strong> {{ movieDetails.producers.join(', ') }}</p>
-        <p><strong>Cinematographers:</strong> {{ movieDetails.cinematographers.join(', ') }}</p>
+<div class="container">
+  <ng-container *ngIf="(movieDetails$ | async) as movieDetails">
+    <button class="button-57" role="button" routerLink="/"><span class="text">Back</span><span>Return</span></button>
+
+    <h2 class="header-title">{{ movieDetails.title }}</h2>
+    <div class="movie-details-container">
+      <div class="poster">
+        <img [src]="movieDetails.poster" alt="Movie Poster">
       </div>
       <div class="summary">
         <h3>Summary</h3>
         <p>{{ movieDetails.summary }}</p>
       </div>
     </div>
-  </div>
+    <div class="details">
+      <h3 class="text-align-center">Details</h3>
+      <div class="info">
+        <table class="table">
+          <tr>
+            <td><strong>Box Office</strong></td>
+            <td>{{ (+movieDetails.box_office) | currency : 'USD' }} million</td>
+          </tr>
+          <tr>
+            <td><strong>Budget</strong></td>
+            <td>{{ (+movieDetails.budget) | currency : 'USD': 'symbol-narrow': '1.0-0' }} million</td>
+          </tr>
+          <tr>
+            <td><strong>Duration</strong></td>
+            <td>{{ (+movieDetails.duration) | duration}}</td>
+          </tr>
+          <tr>
+            <td><strong>Release Date</strong></td>
+            <td>{{ movieDetails.release_date }}</td>
+          </tr>
+          <tr>
+            <td><strong>Producers</strong></td>
+            <td>{{ movieDetails.producers.join(', ') }}</td>
+          </tr>
+          <tr>
+            <td><strong>Cinematographers</strong></td>
+            <td>{{ movieDetails.cinematographers.join(', ') }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </ng-container>
+</div>
