@@ -14,24 +14,32 @@
     </div>
   </div>
 
-  <h2>Movie List</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let movie of filteredMovies">
-        <td>
-          <h3>{{ movie.title }}</h3>
-          <p>Release Date: {{ movie.release_date }} Budget: {{ (+movie.budget) | currency : 'USD': 'symbol-narrow':
-            '1.0-0' }} million Duration: {{(+movie.duration) | duration}}</p>
-        </td>
-        <td><button class="button-57" role="button" (click)="goToDetails(movie.id)"><span
-              class="text">Details</span><span>Details</span></button></td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="movies-section" *ngIf="filteredMovies.length>0;else empty_emplate">
+    <h2>Movies List</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let movie of filteredMovies">
+          <td>
+            <h3>{{ movie.title }}</h3>
+            <p>Release Date: {{ movie.release_date }} Budget: {{ (+movie.budget) | currency : 'USD': 'symbol-narrow':
+              '1.0-0' }} million Duration: {{(+movie.duration) | duration}}</p>
+          </td>
+          <td><button class="button-57" role="button" (click)="goToDetails(movie.id)"><span
+                class="text">Details</span><span>Details</span></button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
+
+<ng-template #empty_emplate>
+  <div class="container">
+    <h1>No Movies found!!</h1>
+  </div>
+</ng-template>
